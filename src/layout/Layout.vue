@@ -25,12 +25,9 @@ onMounted(() => {
     </template>
   </Toolbar>
   <main class="h-[94vh]">
-    <div v-if="!isAuthenticated">
-      <AuthView/>
-    </div>
-
-    <div v-else class="h-full flex items-center justify-center">
-      <slot/>
+    <div class="h-full flex items-center justify-center">
+      <AuthView v-if="!isAuthenticated"/>
+      <slot v-else/>
     </div>
   </main>
 </template>
