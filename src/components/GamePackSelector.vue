@@ -45,22 +45,23 @@ const startGame = async () => {
 
 <template>
   <div class="flex flex-col">
-  <h2>Наборы:</h2>
+    <h2>Наборы:</h2>
 
-  <ProgressSpinner strokeWidth="8" fill="transparent" animationDuration=".5s" v-if="loading"
-                   class="w-[50px]! h-[50px]! my-4!" />
-  <div class="my-4 flex flex-col gap-2" v-else>
+    <ProgressSpinner strokeWidth="8" fill="transparent" animationDuration=".5s" v-if="loading"
+                     class="w-[50px]! h-[50px]! my-4!" />
+    <div class="my-4 flex flex-col gap-2" v-else>
 
-    <div v-for="packItem in packs" :key="packItem.id" class="flex items-center gap-2">
-      <RadioButton v-model="pack" :inputId="'pack-' + packItem.id" name="dynamic" :value="packItem" />
-      <label :for="'pack-' + packItem.id">{{ packItem.name }}</label>
+      <div v-for="packItem in packs" :key="packItem.id" class="flex items-center gap-2">
+        <RadioButton v-model="pack" :inputId="'pack-' + packItem.id" name="dynamic" :value="packItem" />
+        <label :for="'pack-' + packItem.id">{{ packItem.name }}</label>
+      </div>
     </div>
-  </div>
 
-  <div class="flex justify-between gap-2">
-    <Button severity="secondary" label="Назад" @click="goBack" />
-    <Button type="submit" severity="primary" label="Далее" :disabled="!pack" :loading="loadingGame" @click="startGame"/>
-  </div>
+    <div class="flex justify-between gap-2">
+      <Button severity="secondary" label="Назад" @click="goBack" class="w-full" />
+      <Button type="submit" severity="primary" label="Далее" :disabled="!pack" :loading="loadingGame" @click="startGame"
+              class="w-full" />
+    </div>
   </div>
 </template>
 

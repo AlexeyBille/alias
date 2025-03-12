@@ -37,7 +37,7 @@ const nextRound = () => {
       </Column>
     </DataTable>
     <div class="flex justify-between gap-2 mt-2">
-      <Button type="submit" severity="primary" label="Далее" @click.prevent="nextRound"/>
+      <Button type="submit" severity="primary" label="Далее" @click.prevent="nextRound" class="w-full"/>
     </div>
   </div>
 </template>

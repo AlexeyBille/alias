@@ -61,8 +61,8 @@ const goBack = () => {
       </Message>
     </div>
     <div class="flex justify-between gap-2">
-      <Button severity="secondary" label="Назад" @click="goBack"/>
-      <Button type="submit" severity="primary" label="Далее"/>
+      <Button severity="secondary" label="Назад" @click="goBack" class="w-full"/>
+      <Button type="submit" severity="primary" label="Далее" class="w-full"/>
     </div>
   </Form>
 </template>

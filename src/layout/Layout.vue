@@ -17,10 +17,10 @@ onMounted(() => {
 
 <template>
 
-  <Toolbar class="h-[6vh] rounded-none!">
+  <Toolbar class="h-[6vh]! rounded-none!">
     <template #end>
-      <div class="flex items-center gap-2" v-if="isAuthenticated">
-        <Avatar :image="user?.user_metadata?.avatar_url" shape="circle"/>
+      <div class="flex items-center gap-2 " v-if="isAuthenticated">
+        <Avatar :image="user?.user_metadata?.avatar_url" shape="circle" class="h-[3vh]! w-[3vh]!"/>
       </div>
     </template>
   </Toolbar>

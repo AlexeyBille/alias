@@ -47,7 +47,7 @@ const { isSwiping, direction, distanceY } = usePointerSwipe(el, {
     if (Math.abs(distanceY.value) > borderLength.value) {
       gameStore.swipeWord(distanceY.value > 0)
       animateBack.value = false
-    }else {
+    } else {
       animateBack.value = true
 
     }
@@ -62,7 +62,7 @@ onMounted(() => {
   top.value = (center.value - elHeight.value / 2) + 'px'
 
   timerInterval.value = setInterval(() => {
-    console.log(time.value,Math.round(-roundStart.value.diffNow('seconds').seconds))
+    console.log(time.value, Math.round(-roundStart.value.diffNow('seconds').seconds))
     secondsLeft.value = time.value - Math.round(-roundStart.value.diffNow('seconds').seconds)
     secondsLeft.value = secondsLeft.value > 0 ? secondsLeft.value : 0
   }, 500)
@@ -79,12 +79,10 @@ onUnmounted(() => clearInterval(timerInterval.value))
        ref="container">
     <div class="green-zone"></div>
 
-    {{secondsLeft}}
-    <br>
-    <br>
-    <br>
-    <br>
-    <div ref="word-node" class="word-node text-xl font-bold h-[15vh] w-[15vh] flex justify-center items-center "
+    <div class="pointer-events-none absolute top-[40%]">
+      {{ secondsLeft }}
+    </div>
+    <div ref="word-node" class="word-node text-xl font-bold h-full w-full flex justify-center items-center "
          :class="{'swiping': isSwiping, 'animated': animateBack}"
          :style="{top, left}">{{ currentWord.word }}
     </div>
@@ -99,10 +97,12 @@ onUnmounted(() => clearInterval(timerInterval.value))
   position: absolute;
   top: 50%;
   cursor: grab;
-user-select: none;
+  user-select: none;
+
   &.swiping {
     cursor: grabbing;
   }
+
   &.animated {
     transition: all 0.2s ease-in-out;
   }

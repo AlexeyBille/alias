@@ -20,8 +20,8 @@ const { currentPlayer, team } = storeToRefs(gameStore)
         </template>
       </Column>
     </DataTable>
-    <p class="mb-4">Текущий игрок: {{ currentPlayer.name }}</p>
-    <Button @click="gameStore.startRound()">Начать</Button>
+    <p class="mb-4 mt-4">Текущий игрок: <b>{{ currentPlayer.name }}</b></p>
+    <Button @click="gameStore.startRound()" class="w-full">Начать</Button>
   </div>
 </template>
 
